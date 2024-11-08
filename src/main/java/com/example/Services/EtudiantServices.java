@@ -17,22 +17,22 @@ public class EtudiantServices {
 
     public List<Etudiants> getAll() {
         String sql = "SELECT * FROM Etudiants;";
-        return jdbcTemplate.query(sql, new EtudiantsWrapper());
+        return this.jdbcTemplate.query(sql, new EtudiantsWrapper());
     }
 
     public Etudiants getById(int id) {
         String sql = "SELECT * FROM Etudiants WHERE ID = ?;";
-        return jdbcTemplate.queryForObject(sql, new EtudiantsWrapper(), id);
+        return this.jdbcTemplate.queryForObject(sql, new EtudiantsWrapper(), id);
     }
 
     public List<Etudiants> getByCourID(int id){
         String sql = "SELECT ET.* FROM Etudiants ET INNER JOIN Suivre SU ON SU.FK_Etudiant = ET.Id WHERE FK_Cour=?;";
-        return jdbcTemplate.query(sql, new EtudiantsWrapper(),id);
+        return this.jdbcTemplate.query(sql, new EtudiantsWrapper(),id);
    }
 
     public int insert(Etudiants etudiant) {
         String sql = "INSERT INTO Etudiants (Nom, Prenom, Email, Telephone) VALUES (?, ?, ?, ?);";
-        return jdbcTemplate.update(
+        return this.jdbcTemplate.update(
             sql,
             etudiant.getNom(),
             etudiant.getPrenom(),
@@ -43,7 +43,7 @@ public class EtudiantServices {
 
     public int update(Etudiants etudiant){
         String sql = "UPDATE Etudiants SET Nom = ?, Prenom = ?, Email = ?, Telephone = ? WHERE ID = ?";
-        return jdbcTemplate.update(
+        return this.jdbcTemplate.update(
             sql,
             etudiant.getNom(),
             etudiant.getPrenom(),
@@ -55,6 +55,6 @@ public class EtudiantServices {
 
     public int delete(int id){
         String sql = "DELETE FROM Etudiants WHERE Id=?";
-        return jdbcTemplate.update(sql, id);
+        return this.jdbcTemplate.update(sql, id);
     }
 }

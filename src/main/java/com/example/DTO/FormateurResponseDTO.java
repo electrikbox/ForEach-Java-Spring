@@ -1,30 +1,29 @@
 package com.example.DTO;
 
 /**
- * EtudiantResponseDTO is a Data Transfer Object (DTO) that represents the response data for a student.
- * It contains the student's name, surname, email, and telephone number.
+ * FormateurResponseDTO is a Data Transfer Object (DTO) that represents the response data for a formateur (trainer).
+ * It contains the formateur's name, surname, email, and telephone number.
  * 
  * This class provides a constructor for initializing these fields, as well as getter and setter methods
  * for accessing and modifying them.
  * 
  * Fields:
- *   @nom - The student's last name.
- *   @prenom - The student's first name.
- *   @email - The student's email address.
- *   @telephone - The student's telephone number.
+ *   @nom - The formateur's last name.
+ *   @prenom - The formateur's first name.
+ *   @email - The formateur's email address.
+ *   @telephone - The formateur's telephone number.
  * 
  * Methods:
- *   getNom() - Returns the student's last name.
- *   setNom(String nom) - Sets the student's last name.
- *   getPrenom() - Returns the student's first name.
- *   setPrenom(String prenom) - Sets the student's first name.
- *   getEmail() - Returns the student's email address.
- *   setEmail(String email) - Sets the student's email address.
- *   getTelephone() - Returns the student's telephone number.
- *   setTelephone(String telephone) - Sets the student's telephone number.
-
+ *   getNom() - Returns the formateur's last name.
+ *   setNom(String nom) - Sets the formateur's last name.
+ *   getPrenom() - Returns the formateur's first name.
+ *   setPrenom(String prenom) - Sets the formateur's first name.
+ *   getEmail() - Returns the formateur's email address.
+ *   setEmail(String email) - Sets the formateur's email address.
+ *   getTelephone() - Returns the formateur's telephone number.
+ *   setTelephone(String telephone) - Sets the formateur's telephone number.
  */
-public class EtudiantResponseDTO {
+public class FormateurResponseDTO {
 
     private String nom;
     private String prenom;
@@ -32,7 +31,7 @@ public class EtudiantResponseDTO {
     private String telephone;
 
     // Constructeur
-    public EtudiantResponseDTO(String nom, String prenom, String email, String telephone) {
+    public FormateurResponseDTO(String nom, String prenom, String email, String telephone) {
         this.nom = nom;
         this.prenom = prenom;
         this.email = email;

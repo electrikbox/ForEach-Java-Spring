@@ -24,9 +24,41 @@ content-type: application/json
 
 {
     "nom": "Michel",
-    "email": "michel@newmichel.com",
+    "email": "michel@newmichel.com"
 }
 
 ###
 
 DELETE {{base}}/etudiants/20 HTTP/1.1
+
+###
+
+# Formateurs =========================================
+
+GET {{base}}/formateurs HTTP/1.1
+
+###
+
+POST {{base}}/formateurs HTTP/1.1
+content-type: application/json
+
+{
+    "nom": "Michel",
+    "prenom": "michel",
+    "email": "michel@michel.com",
+    "telephone": "06666007"
+}
+
+###
+
+PATCH {{base}}/formateurs/2 HTTP/1.1
+content-type: application/json
+
+{
+    "nom": "Michel",
+    "email": "michel@newmichel.com"
+}
+
+###
+
+DELETE {{base}}/formateurs/2 HTTP/1.1
