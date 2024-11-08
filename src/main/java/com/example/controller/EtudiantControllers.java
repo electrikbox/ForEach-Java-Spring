@@ -132,7 +132,7 @@ public class EtudiantControllers {
 
             etudiantServices.update(existingEtudiant);
 
-            String json = "{\"updated\": \"Etudiant with id" + id + " updated\"}";
+            String json = "{\"updated\": \"Etudiant with id " + id + " updated\"}";
             return new ResponseEntity<>(json, headers, HttpStatus.OK);
 
         } catch (Exception e) {
@@ -162,7 +162,7 @@ public class EtudiantControllers {
             }
 
             etudiantServices.delete(id);
-            String json = "{\"message\": \"Etudiant " + id + " deleted\"}";
+            String json = "{\"message\": \"Etudiant with id " + id + " deleted\"}";
             return new ResponseEntity<>(json, headers, HttpStatus.OK);
 
         } catch (Exception e) {

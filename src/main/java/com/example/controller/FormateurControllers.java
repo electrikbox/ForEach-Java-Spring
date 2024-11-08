@@ -132,7 +132,7 @@ public class FormateurControllers {
 
             formateurServices.update(existingFormateur);
 
-            String json = "{\"updated\": \"Formateur with id" + id + " updated\"}";
+            String json = "{\"updated\": \"Formateur with id " + id + " updated\"}";
             return new ResponseEntity<>(json, headers, HttpStatus.OK);
 
         } catch (Exception e) {
@@ -162,7 +162,7 @@ public class FormateurControllers {
             }
 
             formateurServices.delete(id);
-            String json = "{\"message\": \"Formateur " + id + " deleted\"}";
+            String json = "{\"message\": \"Formateur with id " + id + " deleted\"}";
             return new ResponseEntity<>(json, headers, HttpStatus.OK);
 
         } catch (Exception e) {
