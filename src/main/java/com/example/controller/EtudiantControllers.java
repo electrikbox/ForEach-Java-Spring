@@ -130,9 +130,17 @@ public class EtudiantControllers {
 
             etudiantServices.update(existingEtudiant);
 
-            return new ResponseEntity<>(headers, HttpStatus.OK);
+            EtudiantResponseDTO etudiantDTO = new EtudiantResponseDTO(
+                etudiant.getNom(),
+                etudiant.getPrenom(),
+                etudiant.getEmail(),
+                etudiant.getTelephone()
+            );
 
-        } catch (Exception e) {
+            String json = mapper.writeValueAsString(etudiantDTO);
+            return new ResponseEntity<>(json, headers, HttpStatus.OK);
+
+        } catch (JsonProcessingException e) {
             String errorJson = "{\"error\": \"Error processing update data\"}";
             return new ResponseEntity<>(errorJson, headers, HttpStatus.INTERNAL_SERVER_ERROR);
         }

@@ -130,9 +130,17 @@ public class FormateurControllers {
 
             formateurServices.update(existingFormateur);
 
-            return new ResponseEntity<>(headers, HttpStatus.OK);
+            FormateurResponseDTO formateurDTO = new FormateurResponseDTO(
+                formateur.getNom(),
+                formateur.getPrenom(),
+                formateur.getEmail(),
+                formateur.getTelephone()
+            );
 
-        } catch (Exception e) {
+            String json = mapper.writeValueAsString(formateurDTO);
+            return new ResponseEntity<>(json, headers, HttpStatus.OK);
+
+        } catch (JsonProcessingException e) {
             String errorJson = "{\"error\": \"Error processing update data\"}";
             return new ResponseEntity<>(errorJson, headers, HttpStatus.INTERNAL_SERVER_ERROR);
         }
