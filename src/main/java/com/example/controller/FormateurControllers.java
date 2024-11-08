@@ -132,7 +132,7 @@ public class FormateurControllers {
 
             formateurServices.update(existingFormateur);
 
-            String json = "{\"updated\": \"Formateur " + formateur.getNom() + formateur.getPrenom() + " updated\"}";
+            String json = "{\"updated\": \"Formateur with id" + id + " updated\"}";
             return new ResponseEntity<>(json, headers, HttpStatus.OK);
 
         } catch (Exception e) {

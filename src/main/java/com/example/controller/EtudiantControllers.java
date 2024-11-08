@@ -132,7 +132,7 @@ public class EtudiantControllers {
 
             etudiantServices.update(existingEtudiant);
 
-            String json = "{\"updated\": \"Formateur " + etudiant.getNom() + etudiant.getPrenom() + " updated\"}";
+            String json = "{\"updated\": \"Etudiant with id" + id + " updated\"}";
             return new ResponseEntity<>(json, headers, HttpStatus.OK);
 
         } catch (Exception e) {
