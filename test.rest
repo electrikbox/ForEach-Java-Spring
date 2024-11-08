@@ -51,7 +51,7 @@ content-type: application/json
 
 ###
 
-PATCH {{base}}/formateurs/5 HTTP/1.1
+PATCH {{base}}/formateurs/6 HTTP/1.1
 content-type: application/json
 
 {
@@ -61,4 +61,4 @@ content-type: application/json
 
 ###
 
-DELETE {{base}}/formateurs/4 HTTP/1.1
+DELETE {{base}}/formateurs/5 HTTP/1.1

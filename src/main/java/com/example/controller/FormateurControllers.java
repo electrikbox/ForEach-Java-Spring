@@ -44,6 +44,7 @@ public class FormateurControllers {
         try {
             String json = mapper.writeValueAsString(formateurServices.getAll());
             return new ResponseEntity<>(json, headers, HttpStatus.OK);
+
         } catch (JsonProcessingException e) {
             String errorJson = "{\"error\": \"Error processing formateurs data\"}";
             return new ResponseEntity<>(errorJson, headers, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -65,6 +66,7 @@ public class FormateurControllers {
         try {
             String json = mapper.writeValueAsString(formateurServices.getById(id));
             return new ResponseEntity<>(json, headers, HttpStatus.OK);
+
         } catch (JsonProcessingException e) {
             String errorJson = "{\"error\": \"Error processing formateurs data\"}";
             return new ResponseEntity<>(errorJson, headers, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -130,17 +132,10 @@ public class FormateurControllers {
 
             formateurServices.update(existingFormateur);
 
-            FormateurResponseDTO formateurDTO = new FormateurResponseDTO(
-                formateur.getNom(),
-                formateur.getPrenom(),
-                formateur.getEmail(),
-                formateur.getTelephone()
-            );
-
-            String json = mapper.writeValueAsString(formateurDTO);
+            String json = "{\"updated\": \"Formateur " + formateur.getNom() + formateur.getPrenom() + " updated\"}";
             return new ResponseEntity<>(json, headers, HttpStatus.OK);
 
-        } catch (JsonProcessingException e) {
+        } catch (Exception e) {
             String errorJson = "{\"error\": \"Error processing update data\"}";
             return new ResponseEntity<>(errorJson, headers, HttpStatus.INTERNAL_SERVER_ERROR);
         }

@@ -44,6 +44,7 @@ public class EtudiantControllers {
         try {
             String json = mapper.writeValueAsString(etudiantServices.getAll());
             return new ResponseEntity<>(json, headers, HttpStatus.OK);
+
         } catch (JsonProcessingException e) {
             String errorJson = "{\"error\": \"Error processing etudiants data\"}";
             return new ResponseEntity<>(errorJson, headers, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -65,6 +66,7 @@ public class EtudiantControllers {
         try {
             String json = mapper.writeValueAsString(etudiantServices.getById(id));
             return new ResponseEntity<>(json, headers, HttpStatus.OK);
+
         } catch (JsonProcessingException e) {
             String errorJson = "{\"error\": \"Error processing etudiants data\"}";
             return new ResponseEntity<>(errorJson, headers, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -130,17 +132,10 @@ public class EtudiantControllers {
 
             etudiantServices.update(existingEtudiant);
 
-            EtudiantResponseDTO etudiantDTO = new EtudiantResponseDTO(
-                etudiant.getNom(),
-                etudiant.getPrenom(),
-                etudiant.getEmail(),
-                etudiant.getTelephone()
-            );
-
-            String json = mapper.writeValueAsString(etudiantDTO);
+            String json = "{\"updated\": \"Formateur " + etudiant.getNom() + etudiant.getPrenom() + " updated\"}";
             return new ResponseEntity<>(json, headers, HttpStatus.OK);
 
-        } catch (JsonProcessingException e) {
+        } catch (Exception e) {
             String errorJson = "{\"error\": \"Error processing update data\"}";
             return new ResponseEntity<>(errorJson, headers, HttpStatus.INTERNAL_SERVER_ERROR);
         }
