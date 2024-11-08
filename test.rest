@@ -7,6 +7,10 @@ GET {{base}}/etudiants HTTP/1.1
 
 ###
 
+GET {{base}}/etudiants/1 HTTP/1.1
+
+###
+
 POST {{base}}/etudiants HTTP/1.1
 content-type: application/json
 
@@ -62,3 +66,39 @@ content-type: application/json
 ###
 
 DELETE {{base}}/formateurs/5 HTTP/1.1
+
+###
+
+# Cours =========================================
+
+GET {{base}}/cours HTTP/1.1
+
+###
+
+GET {{base}}/cours/1 HTTP/1.1
+
+###
+
+POST {{base}}/cours HTTP/1.1
+content-type: application/json
+
+{
+    "dateDebut": "2024-10-10T00:00:00",
+    "dateFin": "2024-10-11T00:00:00",
+    "ue": { "id": 1 },
+    "formateur": { "id": 1 }
+}
+
+###
+
+PATCH {{base}}/cours/6 HTTP/1.1
+content-type: application/json
+
+{
+    "nom": "Michel",
+    "email": "michel@michel.com"
+}
+
+###
+
+DELETE {{base}}/cours/5 HTTP/1.1

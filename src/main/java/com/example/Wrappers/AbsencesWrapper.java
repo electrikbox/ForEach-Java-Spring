@@ -3,18 +3,18 @@ package com.example.Wrappers;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Component;
 
-import com.example.model.Absences;
 import com.example.Services.EtudiantServices;
+import com.example.model.Absences;
 
+@Component
 public class AbsencesWrapper implements RowMapper<Absences> {
 
-    private final EtudiantServices etudiantServices;
-
-    public AbsencesWrapper() {
-        this.etudiantServices = new EtudiantServices();
-    }
+    @Autowired
+    private EtudiantServices etudiantServices;
 
     @Override
     public Absences mapRow(ResultSet rs, int rowNum) throws SQLException {

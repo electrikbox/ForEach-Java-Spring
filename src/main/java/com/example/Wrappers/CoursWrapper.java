@@ -3,24 +3,24 @@ package com.example.Wrappers;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Component;
 
 import com.example.Services.EtudiantServices;
 import com.example.Services.FormateursServices;
 import com.example.Services.UEServices;
 import com.example.model.Cours;
 
+@Component
 public class CoursWrapper implements RowMapper<Cours> {
 
-    private final UEServices ueServices;
-    private final FormateursServices formateursServices;
-    private final EtudiantServices etudiantServices;
-
-    public CoursWrapper() {
-        this.ueServices = new UEServices();
-        this.formateursServices = new FormateursServices();
-        this.etudiantServices = new EtudiantServices();
-    }
+    @Autowired
+    private UEServices ueServices;
+    @Autowired
+    private FormateursServices formateursServices;
+    @Autowired
+    private EtudiantServices etudiantServices;
 
     @Override
     public Cours mapRow(ResultSet rs, int rowNum) throws SQLException {

@@ -18,19 +18,22 @@ public class SuivreServices {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
+    @Autowired
+    private SuivreWrapper suivreWrapper;
+
     public List<Suivre> getAll() {
         String sql = "SELECT * FROM Suivre;";
-        return this.jdbcTemplate.query(sql, new SuivreWrapper());
+        return this.jdbcTemplate.query(sql, suivreWrapper);
     }
 
     public List<Suivre> getEtudiantById(int id) {
         String sql = "SELECT * FROM UE WHERE FK_Etudiant = ?;";
-        return this.jdbcTemplate.query(sql, new SuivreWrapper(), id);
+        return this.jdbcTemplate.query(sql, suivreWrapper, id);
     }
 
     public List<Suivre> getCourById(int id) {
         String sql = "SELECT * FROM UE WHERE FK_Cour = ?;";
-        return this.jdbcTemplate.query(sql, new SuivreWrapper(), id);
+        return this.jdbcTemplate.query(sql, suivreWrapper, id);
     }
 
     public int insert(int idCour, int idEtudiant){

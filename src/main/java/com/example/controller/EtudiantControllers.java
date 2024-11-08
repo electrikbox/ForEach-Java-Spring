@@ -59,7 +59,7 @@ public class EtudiantControllers {
      *         or an error message in JSON format and HTTP status code 500 (Internal Server Error) if there is a processing error
      */
     @GetMapping("/{id}")
-    public ResponseEntity<String> getByID(@PathVariable int id) {
+    public ResponseEntity<String> getByID(@PathVariable("id") int id) {
         HttpHeaders headers = new HttpHeaders();
         headers.add(HttpHeaders.CONTENT_TYPE, "application/json");
 

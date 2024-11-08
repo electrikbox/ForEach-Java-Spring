@@ -5,6 +5,9 @@ public class Suivre {
     private Etudiants etudiant;
     private Cours cours;
     
+    public Suivre() {
+    }
+
     public Suivre(Etudiants etudiant, Cours cours) {
         this.etudiant = etudiant;
         this.cours = cours;

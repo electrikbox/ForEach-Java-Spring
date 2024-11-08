@@ -16,14 +16,17 @@ public class AbsenceServices {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
+    @Autowired
+    private AbsencesWrapper absencesWrapper;
+
     public List<Absences> getAll() {
         String sql = "SELECT * FROM Absences;";
-        return this.jdbcTemplate.query(sql, new AbsencesWrapper());
+        return this.jdbcTemplate.query(sql, absencesWrapper);
     }
 
     public Absences getById(int id) {
         String sql = "SELECT * FROM Absences WHERE ID = ?;";
-        return this.jdbcTemplate.queryForObject(sql, new AbsencesWrapper(), id);
+        return this.jdbcTemplate.queryForObject(sql, absencesWrapper, id);
     }
 
     public int insert(Absences absence){

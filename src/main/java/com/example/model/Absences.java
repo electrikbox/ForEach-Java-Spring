@@ -9,6 +9,9 @@ public class Absences {
     private String type;
     private Etudiants etudiant;
 
+    public Absences() {
+    }
+
     public Absences(int id, Date dateDebut, Date dateFin, String type, Etudiants etudiant) {
         this.id = id;
         this.dateDebut = dateDebut;

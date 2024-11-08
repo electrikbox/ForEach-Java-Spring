@@ -16,20 +16,22 @@ public class CoursServices {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
+    @Autowired
+    private CoursWrapper coursWrapper;
+
     public List<Cours> getAll() {
         String sql = "SELECT * FROM Cours;";
-        return this.jdbcTemplate.query(sql, new CoursWrapper());
+        return this.jdbcTemplate.query(sql, this.coursWrapper);
     }
 
     public Cours getById(int id) {
         String sql = "SELECT * FROM Cours WHERE ID = ?;";
-        return this.jdbcTemplate.queryForObject(sql, new CoursWrapper(), id);
+        return this.jdbcTemplate.queryForObject(sql, this.coursWrapper, id);
     }
 
     public int insert(Cours cour) {
         String sql = "INSERT INTO Cours VALUES (?, ?, ?, ?);";
-        return this.jdbcTemplate.update(
-            sql,
+        return this.jdbcTemplate.update(sql,
             cour.getDateDebut(),
             cour.getDateFin(),
             cour.getUe().getId(),

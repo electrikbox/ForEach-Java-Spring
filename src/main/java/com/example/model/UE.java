@@ -5,6 +5,9 @@ public class UE {
     private int id;
     private String libelle;
 
+    public UE() {
+    }
+
     public UE(String libelle) {
         this.libelle = libelle;
     }

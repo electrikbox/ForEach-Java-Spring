@@ -1,36 +1,25 @@
-package com.example.model;
-import java.util.Date;
-import java.util.List;
+package com.example.DTO;
 
-public class Cours {
+import java.util.Date;
+
+import com.example.model.Formateurs;
+import com.example.model.UE;
+
+public class CoursResponseDTO {
 
     private int id;
     private Date dateDebut;
     private Date dateFin;
     private UE ue;
     private Formateurs formateur;
-    private List<Etudiants> etudiants;
 
-    public Cours() {
-    }
-
-    public Cours(int id, Date dateDebut, Date dateFin, UE ue, Formateurs formateur) {
+    public CoursResponseDTO(int id, Date dateDebut, Date dateFin, UE ue, Formateurs formateur) {
         this.id = id;
         this.dateDebut = dateDebut;
         this.dateFin = dateFin;
         this.ue = ue;
         this.formateur = formateur;
     }
-
-    public Cours(int id, Date dateDebut, Date dateFin, UE ue, Formateurs formateur, List<Etudiants> etudiants) {
-        this.id = id;
-        this.dateDebut = dateDebut;
-        this.dateFin = dateFin;
-        this.ue = ue;
-        this.formateur = formateur;
-        this.etudiants = etudiants;
-    }
-
 
     public int getId() {
         return id;
@@ -70,13 +59,5 @@ public class Cours {
 
     public void setUe(UE ue) {
         this.ue = ue;
-    }
-
-    public List<Etudiants> getEtudiants() {
-        return etudiants;
-    }
-
-    public void setEtudiants(List<Etudiants> etudiants) {
-        this.etudiants = etudiants;
     }
 }
