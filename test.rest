@@ -91,12 +91,48 @@ content-type: application/json
 
 ###
 
-PATCH {{base}}/cours/6 HTTP/1.1
+PATCH {{base}}/cours/1 HTTP/1.1
 content-type: application/json
 
 {
+    "formateur": { "id": "6" }
 }
 
 ###
 
 DELETE {{base}}/cours/1 HTTP/1.1
+
+###
+
+# Absences =========================================
+
+GET {{base}}/absences HTTP/1.1
+
+###
+
+GET {{base}}/absences/1 HTTP/1.1
+
+###
+
+POST {{base}}/absences HTTP/1.1
+content-type: application/json
+
+{
+    "dateDebut": "2024-12-10T00:00:00",
+    "dateFin": "",
+    "type": "Vacances",
+    "etudiant": { "id": "1" }
+}
+
+###
+
+PATCH {{base}}/absences/6 HTTP/1.1
+content-type: application/json
+
+{
+    "dateFin": "2024-10-11T00:00:00"
+}
+
+###
+
+DELETE {{base}}/absences/4 HTTP/1.1

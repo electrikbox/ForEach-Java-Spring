@@ -27,7 +27,7 @@ public class EtudiantServices {
     }
 
     public List<Etudiants> getByCourID(int id){
-        String sql = "SELECT ET.* FROM Etudiants ET INNER JOIN Suivre SU ON SU.FK_Etudiant = ET.Id WHERE FK_Cour=?;";
+        String sql = "SELECT ET.* FROM Etudiants ET INNER JOIN suivre SU ON SU.FK_Etudiant = ET.Id WHERE FK_Cour=?;";
         return this.jdbcTemplate.query(sql, new EtudiantsWrapper(),id);
    }
 

@@ -30,7 +30,8 @@ public class CoursServices {
     }
 
     public int insert(Cours cour) {
-        String sql = "INSERT INTO Cours VALUES (?, ?, ?, ?);";
+        String sql = "INSERT INTO Cours (Date_Debut, Date_Fin, FK_UE, FK_Formateur) VALUES (?, ?, ?, ?);";
+        
         return this.jdbcTemplate.update(sql,
             cour.getDateDebut(),
             cour.getDateFin(),

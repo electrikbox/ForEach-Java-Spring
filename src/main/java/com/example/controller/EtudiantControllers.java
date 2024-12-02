@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.example.DTO.EtudiantResponseDTO;
 import com.example.Services.EtudiantServices;
 import com.example.model.Etudiants;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -88,17 +87,10 @@ public class EtudiantControllers {
         try {
             etudiantServices.insert(etudiant);
 
-            EtudiantResponseDTO etudiantDTO = new EtudiantResponseDTO(
-                etudiant.getNom(),
-                etudiant.getPrenom(),
-                etudiant.getEmail(),
-                etudiant.getTelephone()
-            );
-
-            String json = mapper.writeValueAsString(etudiantDTO);
+            String json = "{\"inserted\": \"Etudiant with id " + etudiant.getId() + " inserted\"}";
             return new ResponseEntity<>(json, headers, HttpStatus.CREATED);
 
-        } catch (JsonProcessingException e) {
+        } catch (Exception e) {
             String errorJson = "{\"error\": \"Error processing etudiant data\"}";
             return new ResponseEntity<>(errorJson, headers, HttpStatus.INTERNAL_SERVER_ERROR);
         }

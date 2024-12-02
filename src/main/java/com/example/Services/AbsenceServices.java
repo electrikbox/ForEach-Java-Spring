@@ -30,11 +30,11 @@ public class AbsenceServices {
     }
 
     public int insert(Absences absence){
-        String sql = "INSERT INTO Absences VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO Absences (Date_Debut, Date_Fin, Type, FK_Etudiant) VALUES (?, ?, ?, ?)";
         return this.jdbcTemplate.update(
             sql,
             absence.getDateDebut(),
-            null,
+            absence.getDateFin(),
             absence.getType(),
             absence.getEtudiant().getId()
         );

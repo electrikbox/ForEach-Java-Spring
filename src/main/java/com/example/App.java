@@ -33,3 +33,6 @@ public class App extends AbstractAnnotationConfigDispatcherServletInitializer
         return new String[] { "/" };
     }
 }
+
+
+// sudo /opt/tomcat/bin/startup.sh

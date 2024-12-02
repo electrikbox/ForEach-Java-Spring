@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.example.DTO.FormateurResponseDTO;
 import com.example.Services.FormateursServices;
 import com.example.model.Formateurs;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -74,11 +73,12 @@ public class FormateurControllers {
     }
 
     /**
-     * Inserts a new Formateur record.
+     * Inserts a new Formateur into the system.
      *
-     * @param etudiant The Formateurs object to be inserted.
-     * @return A ResponseEntity containing the JSON representation of the inserted FormateurResponseDTO
-     *         and the appropriate HTTP status code.
+     * @param formateur the Formateur object to be inserted
+     * @return a ResponseEntity containing a JSON message indicating the result of the operation
+     *         - HTTP status 201 (Created) if the insertion is successful
+     *         - HTTP status 500 (Internal Server Error) if an error occurs during insertion
      */
     @PostMapping
     public ResponseEntity<String> insert(@RequestBody Formateurs formateur) {
@@ -88,17 +88,10 @@ public class FormateurControllers {
         try {
             formateurServices.insert(formateur);
 
-            FormateurResponseDTO formateurDTO = new FormateurResponseDTO(
-                formateur.getNom(),
-                formateur.getPrenom(),
-                formateur.getEmail(),
-                formateur.getTelephone()
-            );
-
-            String json = mapper.writeValueAsString(formateurDTO);
+            String json = "{\"inserted\": \"Formateur with id " + formateur.getId() + " inserted\"}";
             return new ResponseEntity<>(json, headers, HttpStatus.CREATED);
 
-        } catch (JsonProcessingException e) {
+        } catch (Exception e) {
             String errorJson = "{\"error\": \"Error processing formateur data\"}";
             return new ResponseEntity<>(errorJson, headers, HttpStatus.INTERNAL_SERVER_ERROR);
         }
