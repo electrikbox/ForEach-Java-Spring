@@ -9,6 +9,7 @@ import com.example.model.UE;
 
 public class UEWrapper implements RowMapper<UE>{
     
+    @SuppressWarnings("null")
     @Override
     public UE mapRow(ResultSet rs, int rowNum) throws SQLException {
         return new UE(

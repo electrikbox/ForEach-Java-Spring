@@ -9,6 +9,7 @@ import com.example.model.Etudiants;
 
 public class EtudiantsWrapper implements RowMapper<Etudiants>{
 
+    @SuppressWarnings("null")
     @Override
     public Etudiants mapRow(ResultSet rs, int rowNum) throws SQLException {
         return new Etudiants(

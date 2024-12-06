@@ -19,6 +19,7 @@ public class SuivreWrapper implements RowMapper<Suivre> {
     @Autowired
     CoursServices coursServices;
 
+    @SuppressWarnings("null")
     @Override
     public Suivre mapRow(ResultSet rs, int rowNum) throws SQLException {
         return new Suivre(

@@ -9,6 +9,7 @@ import com.example.model.Formateurs;
 
 public class FormateursWrapper implements RowMapper<Formateurs>{
 
+    @SuppressWarnings("null")
     @Override
     public Formateurs mapRow(ResultSet rs, int rowNum) throws SQLException {
         return new Formateurs(

@@ -16,6 +16,7 @@ public class AbsencesWrapper implements RowMapper<Absences> {
     @Autowired
     private EtudiantServices etudiantServices;
 
+    @SuppressWarnings("null")
     @Override
     public Absences mapRow(ResultSet rs, int rowNum) throws SQLException {
         return new Absences(

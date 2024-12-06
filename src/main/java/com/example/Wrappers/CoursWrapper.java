@@ -22,6 +22,7 @@ public class CoursWrapper implements RowMapper<Cours> {
     @Autowired
     private EtudiantServices etudiantServices;
 
+    @SuppressWarnings("null")
     @Override
     public Cours mapRow(ResultSet rs, int rowNum) throws SQLException {
         return new Cours(rs.getInt("Id"),
